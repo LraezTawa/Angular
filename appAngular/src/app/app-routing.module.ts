@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { validateSessionGuard, validateSessionGuard2 } from '@core/guards/validate-session.guard';
+import { validateSessionGuard } from '@core/guards/validate-session.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path:'task',
     loadChildren:()=>import('@modules/task/task.module').then((m)=>m.TaskModule),
-    canActivate:[validateSessionGuard],canMatch:[validateSessionGuard2]
+    canActivate:[validateSessionGuard]
   }
 ];
 

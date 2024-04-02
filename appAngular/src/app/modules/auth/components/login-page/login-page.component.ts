@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ReplaceSpacePipe } from '@shared/pipes/replace-space.pipe';
 
 @Component({
@@ -8,8 +9,13 @@ import { ReplaceSpacePipe } from '@shared/pipes/replace-space.pipe';
 })
 
 export class LoginPageComponent {
-  value='hola mundo feo'
-  constructor(private replaceSpace:ReplaceSpacePipe){this.value= replaceSpace.transform(this.value,'ay')}
+  
+  loginForm:FormGroup = new FormGroup({});
+
+  constructor(){this.loginForm=new FormGroup({
+    email:new FormControl(''),
+    password:new FormControl('')
+  })}
 
   
 }
