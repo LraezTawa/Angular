@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent {
+export class LoginPageComponent2 {
 
 }
