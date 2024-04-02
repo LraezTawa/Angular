@@ -1,21 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponentComponent } from './test-component/test-component.component';
-import { Page404Component } from './page404/page404.component';
-
 const routes: Routes = [
   {
-    path:'',
-    component:TestComponentComponent
+    path:'auth',
+    loadChildren: () => import('@modules/auth/auth.module').then((m)=>m.AuthModule)
   },
   {
-    path:'elcompo',
-    component:TestComponentComponent
-  }
-  ,
-  {
-    path:'**',
-    component:Page404Component
+    path:'task',
+    loadChildren: () => import('@modules/task/task.module').then((m)=>m.TaskModule)
   }
 ];
 

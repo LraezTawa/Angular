@@ -28,8 +28,8 @@
         "./src/app/core/*"
       ],"@shared/*":[
         "./src/app/shared/*"
-      ],"@modulo/*":[
-        "./src/app/modulo/*"
+      ],"@modules/*":[
+        "./src/app/modules/*"
       ]
     }
   },
