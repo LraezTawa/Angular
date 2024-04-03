@@ -3,7 +3,7 @@
         <i class="logo-icon uil uil-apps"></i>
     </div>
 
-    <form [formGroup]="loginForm"  class="form d-flex">
+    <form [formGroup]="registerForm"  class="form d-flex">
         <div class="form-input">
             <input formControlName="email" 
             type="text" placeholder="Introduzca el correo electrónico">
@@ -32,9 +32,9 @@
             <input formControlName="passwordConfirm" 
             type="password" placeholder="Confirmar la contraseña">
         </div> -->
-        <div class="form-input">
-            <button [disabled]="loginForm.invalid || loginForm.pending"  class="btn-primary">Continuar</button>
-        </div>
+        <!-- <div class="form-input">
+            <button [disabled]="registerForm.invalid || registerForm.pending"  class="btn-primary">Continuar</button>
+        </div> -->
      
     </form>
 </div>
