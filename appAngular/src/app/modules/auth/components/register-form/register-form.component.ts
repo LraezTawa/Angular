@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -21,11 +21,20 @@ export class RegisterFormComponent {
         name: new FormControl('',[Validators.required, Validators.minLength(3)]),
         lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
         phone: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        aboutMe: new FormControl('',[Validators.required, Validators.minLength(3)])
-       }//,
-      // {
-      //   validators:passwordMatchValidator
-      // }
+        aboutMe: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        password: new FormControl('',[Validators.required, Validators.minLength(3)]),
+        passwordConfirm: new FormControl('',[Validators.required, Validators.minLength(3)])
+
+       },
+      {
+        validators:passwordMatchValidator
+      }
     )
+
+    function passwordMatchValidator(formCurrent:AbstractControl | FormGroup):any {
+      const valuePassword = formCurrent.get('password')?.value;
+      const valuePasswordConfirm = formCurrent.get('passwordConfirm')?.value;
+      return (valuePassword === valuePasswordConfirm) ? null : {'mismatch': true};
+    }
   }
 }

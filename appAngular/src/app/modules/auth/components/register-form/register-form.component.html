@@ -1,8 +1,11 @@
+<div class="wrapper-login-form d-flex d-all-center">
 <div class="login-form">
     <div class="d-flex d-all-center">
         <i class="logo-icon uil uil-apps"></i>
     </div>
-
+    <pre>
+        {{registerForm.value | json}}
+    </pre>
     <form [formGroup]="registerForm"  class="form d-flex">
         <div class="form-input">
             <input formControlName="email" 
@@ -24,17 +27,22 @@
             <input formControlName="aboutMe" 
             type="text" placeholder="Introduzca descripción">
         </div>
-        <!-- <div class="form-input">
+        <div class="form-input">
             <input formControlName="password" 
             type="password" placeholder="Introduzca la contraseña">
         </div>
         <div class="form-input">
             <input formControlName="passwordConfirm" 
             type="password" placeholder="Confirmar la contraseña">
-        </div> -->
-        <!-- <div class="form-input">
+        </div> 
+        <div class="form-input">
             <button [disabled]="registerForm.invalid || registerForm.pending"  class="btn-primary">Continuar</button>
-        </div> -->
+        </div>
+        
      
     </form>
+        
+    <button [routerLink]="'../login'" class="btn-primary">volver</button>
+</div>
+
 </div>
