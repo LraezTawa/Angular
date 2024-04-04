@@ -8,10 +8,10 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class RegisterFormComponent {
 
-  registerForm:FormGroup = new FormGroup({});
+  //registerForm:FormGroup = new FormGroup({});
 
-  constructor() { 
-    this.registerForm = new FormGroup(
+  
+    registerForm = new FormGroup(
       {
         email: new FormControl('',{
           validators:[Validators.required, Validators.email],
@@ -21,7 +21,6 @@ export class RegisterFormComponent {
         name: new FormControl('',[Validators.required, Validators.minLength(3)]),
         lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
         phone: new FormControl('',[Validators.required, Validators.minLength(3)]),
-        aboutMe: new FormControl('',[Validators.required, Validators.minLength(3)]),
         password: new FormControl('',[Validators.required, Validators.minLength(3)]),
         passwordConfirm: new FormControl('',[Validators.required, Validators.minLength(3)])
 
@@ -31,10 +30,46 @@ export class RegisterFormComponent {
       }
     )
 
-    function passwordMatchValidator(formCurrent:AbstractControl | FormGroup):any {
-      const valuePassword = formCurrent.get('password')?.value;
-      const valuePasswordConfirm = formCurrent.get('passwordConfirm')?.value;
-      return (valuePassword === valuePasswordConfirm) ? null : {'mismatch': true};
+    sendCredentials():void{
+      console.log('body')
+      const body = this.registerForm.value
+            // this.authService.submitLogin(body)
+      // .subscribe((response) => {
+      //   this.router.navigate(['/','task'])
+      // })
+      console.log(body)
     }
-  }
+
+
+    testLoaded():void{
+
+      const mockData={
+        email:'test@test.com',
+        name:'Luis',
+        lastName:'Raez',
+        phone:'984127016',
+        password:'1234d',
+        passwordConfirm:'1234d'
+      }
+      this.registerForm.setValue(mockData)
+    }
+
+    testUpdate():void{
+
+      const mockData={
+        email:'segundotest@test.com',
+        phone:'111111111',
+      }
+      this.registerForm.patchValue(mockData)
+    }
+
+    
+    
 }
+
+function passwordMatchValidator(formCurrent:AbstractControl | FormGroup):any {
+  const valuePassword = formCurrent.get('password')?.value;
+  const valuePasswordConfirm = formCurrent.get('passwordConfirm')?.value;
+  return (valuePassword === valuePasswordConfirm) ? null : {'mismatch': true};
+}
+

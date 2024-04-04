@@ -6,7 +6,16 @@
     <pre>
         {{registerForm.value | json}}
     </pre>
-    <form [formGroup]="registerForm"  class="form d-flex">
+    <div>
+        <button class="btn-primary"(click)="testLoaded()">
+            Cargar data
+        </button>
+        <hr>
+        <button class="btn-primary"(click)="testUpdate()">
+            actualizar data
+        </button>
+    </div>
+    <form [formGroup]="registerForm" (submit)="sendCredentials()" class="form d-flex">
         <div class="form-input">
             <input formControlName="email" 
             type="text" placeholder="Introduzca el correo electrónico">
@@ -24,10 +33,6 @@
             type="text" placeholder="Introduzca Telefono">
         </div>
         <div class="form-input">
-            <input formControlName="aboutMe" 
-            type="text" placeholder="Introduzca descripción">
-        </div>
-        <div class="form-input">
             <input formControlName="password" 
             type="password" placeholder="Introduzca la contraseña">
         </div>
@@ -36,13 +41,15 @@
             type="password" placeholder="Confirmar la contraseña">
         </div> 
         <div class="form-input">
-            <button [disabled]="registerForm.invalid || registerForm.pending"  class="btn-primary">Continuar</button>
+            <button 
+           
+            class="btn-primary">Continuar</button>
         </div>
         
      
     </form>
         
-    <button [routerLink]="'../login'" class="btn-primary">volver</button>
+    <!-- <button [routerLink]="'../login'" class="btn-primary">volver</button>   [disabled]="registerForm.invalid || registerForm.pending"  -->
 </div>
 
 </div>

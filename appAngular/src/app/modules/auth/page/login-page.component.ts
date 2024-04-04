@@ -16,20 +16,16 @@ export class LoginPageComponent {
         email: new FormControl('',[Validators.required,Validators.email]),
         password: new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(15)])
       }
-  
-  
-  )
+    )
+  }
 
-
-}
-
-sendCredentials():void{
-  const body = this.loginForm.value;
-  // this.authService.submitLogin(body)
-  // .subscribe((response) => {
-  //   this.router.navigate(['/','task'])
-  // })
-  console.log(body)
-}
+  sendCredentials():void{
+    const body = this.loginForm.value;
+    // this.authService.submitLogin(body)
+    // .subscribe((response) => {
+    //   this.router.navigate(['/','task'])
+    // })
+    console.log(body)
+  }
   
 }
