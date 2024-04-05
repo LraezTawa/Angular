@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthTestService } from '@modules/auth/service/auth-test.service';
 
 @Component({
   selector: 'app-register-form',
@@ -9,14 +10,14 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 export class RegisterFormComponent {
 
   //registerForm:FormGroup = new FormGroup({});
-
+  constructor(private authService:AuthTestService){}
   
     registerForm = new FormGroup(
       {
         email: new FormControl('',{
           validators:[Validators.required, Validators.email],
-          //asyncValidators:this.authService.uniqueEmailValidator(),
-          updateOn:'blur'
+          asyncValidators:this.authService.uniqueEmailValidator()//,si se deja así, por defecto carga aunque aún se esté editando la seleccion
+          //updateOn:'blur' este es un disparador, implica que cuando sale del formulario carga la accion asignada en lugar de hacerlo de inmediato
         }),
         name: new FormControl('',[Validators.required, Validators.minLength(3)]),
         lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),

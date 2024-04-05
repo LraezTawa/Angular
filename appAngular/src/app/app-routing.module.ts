@@ -11,12 +11,12 @@ const routes: Routes = [
   },
   {
     path:'task',
-    loadChildren:()=>import(rutas.auth).then((m)=>m.TaskModule),//importacion dinamica
+    loadChildren:()=>import(rutas.task).then((m)=>m.TaskModule),//importacion dinamica
     canActivate:[validateSessionGuard]
   }
 ];
 
-const enum  rutas{
+enum  rutas{
   task='@modules/task/task.module',
   auth='@modules/auth/auth.module'
 }

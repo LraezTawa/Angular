@@ -4,7 +4,7 @@
         <i class="logo-icon uil uil-apps"></i>
     </div>
     <pre>
-        {{registerForm.value | json}}
+        {{registerForm.pending | json}}
     </pre>
     <div>
         <button class="btn-primary"(click)="testLoaded()">
@@ -41,9 +41,7 @@
             type="password" placeholder="Confirmar la contraseña">
         </div> 
         <div class="form-input">
-            <button 
-           
-            class="btn-primary">Continuar</button>
+            <button [disabled]="registerForm.invalid || registerForm.pending"  class="btn-primary">Continuar</button>
         </div>
         
      
