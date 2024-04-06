@@ -10,7 +10,16 @@ import { AuthTestService } from '@modules/auth/service/auth-test.service';
 export class RegisterFormComponent {
 
   //registerForm:FormGroup = new FormGroup({});
-  constructor(private authService:AuthTestService){}
+  constructor(private authService:AuthTestService){
+    const formControlPhone = this.registerForm.get('phone') as FormControl;
+    formControlPhone.valueChanges.subscribe((res)=>{
+      console.log('ok ok ok', res)
+    })
+
+    this.registerForm.valueChanges.subscribe((res)=>{
+      console.log('ok ok ok', res)
+    })//nota en consola como regustra todos los cambios
+  }
   
     registerForm = new FormGroup(
       {
@@ -30,6 +39,8 @@ export class RegisterFormComponent {
         validators:passwordMatchValidator
       }
     )
+
+    
 
     sendCredentials():void{
       console.log('body')

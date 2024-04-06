@@ -15,6 +15,9 @@
             actualizar data
         </button>
     </div>
+    <div class="text-label d-flex d-all-center">
+        crea tu cuenta {{registerForm.invalid}} {{registerForm.value}}
+    </div>
     <form [formGroup]="registerForm" (submit)="sendCredentials()" class="form d-flex">
         <div class="form-input">
             <input formControlName="email" 
