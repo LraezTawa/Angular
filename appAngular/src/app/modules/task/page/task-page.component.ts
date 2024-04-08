@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './task-page.component.css'
 })
 export class TaskPageComponent {
-  case:number=1;
-  constructor(){}
   
+  constructor(){}
 }
