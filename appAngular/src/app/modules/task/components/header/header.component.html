@@ -4,8 +4,8 @@
             {{testCourseService.dataTest}}
         </div>
         <div class="menu">
-            <ul>
-                <li 
+             <ul> <!--  la clase(del css):el atributo que designo    -->
+                <li [ngClass]="{'active':primero}"
                 *ngFor="let item of menu;let primero = first">
                     {{item.name}}
                 </li>

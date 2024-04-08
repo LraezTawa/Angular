@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './task-page.component.css'
 })
 export class TaskPageComponent {
-  showtext=true;
-  Cambiartexto():void{
-    this.showtext = !this.showtext
-  }
+  case:number=1;
+  constructor(){}
+  
 }

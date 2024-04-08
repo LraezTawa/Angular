@@ -1,5 +1,7 @@
 <app-header></app-header>
-<button (click)="Cambiartexto()">cambiars</button>
-<div *ngIf="showtext">
-    Hola mundo este es un texto
+<div class="padre" [ngSwitch]="case">
+    <div *ngSwitchCase="1" class="hijo">hola soy pedro</div>
+    <div *ngSwitchCase="2" class="hijo">hola soy maria</div>
+    <div *ngSwitchCase="3" class="hijo">hola somos maria y pedro</div>
+    <div *ngSwitchDefault>opcion por defecto</div>
 </div>
