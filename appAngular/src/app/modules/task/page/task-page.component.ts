@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
 export class TaskPageComponent {
   
   constructor(){}
-  results:Array<any>=[
-    'respuesta 1',
-    'respuesta 2',
-    'respuesta 3',
-    'respuesta 4 '
+  listUser:Array<{id:string,name:string}>=[
+    {
+      id:'1',
+      name:'Leifer'
+    },{
+      id:'2',
+      name:'Maria'
+    },{
+      id:'3',
+      name:'Pedro'
+    },
   ]
 }
