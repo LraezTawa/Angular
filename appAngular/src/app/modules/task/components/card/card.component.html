@@ -1,14 +1,14 @@
 <div class="card">
-    <div class="title" #refId>{{idOrder}}</div>
+    <div class="title" #refId>N° {{idOrder}}</div>
     <ul class="body">
-        <ng-container *ngFor="let item of items">
+        <ng-container *ngFor="let ass of items">
          
-            <li *ngIf="['price','time','Observacion'].includes(item.key)">
+            <li *ngIf="['price','time','Observacion'].includes(ass.key)">
                 <i class="uil" [ngClass]="{
-                    'uil-credit-card':item.key == 'price',
-                    'uil-clock':item.key == 'time'
+                    'uil-credit-card':ass.key == 'price',
+                    'uil-clock':ass.key == 'time'
                 }"></i>
-                <span>{{item.value}}</span>
+                <span>{{ass.value}}</span>
             </li>
          
         </ng-container>

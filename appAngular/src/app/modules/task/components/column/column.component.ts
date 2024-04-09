@@ -12,8 +12,10 @@ export class ColumnComponent implements OnInit{
   @Input() name:string = '';
   @Input() id:string = '';
   
-  constructor(private newTaskSerivce:NewTaskService,
-    private columnService:ColumnService) { }
+  constructor(
+    private newTaskSerivce:NewTaskService,
+    private columnService:ColumnService
+  ) { }
 
   ngOnInit(): void {
     this.columnService.reloadColumn$

@@ -11,7 +11,7 @@
 <button (click)="addTask()" class="btn-primary">Agregar</button>
 <div class="column">
     <app-card  
-     [items]="card.item"
+     [items]="card.items"
      [idOrder]="card.order" 
      *ngFor="let card of data">
 </app-card>
