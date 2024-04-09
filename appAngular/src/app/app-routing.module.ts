@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { validateSessionGuard } from '@core/guards/validate-session.guard';
+import { ValidateSessionGuard } from '@core/guards/validate-session.guard';
 import { AuthModule } from '@modules/auth/auth.module';//importacion implicita
 
  enum rutas{
@@ -15,8 +15,14 @@ const routes: Routes = [
   },
   {
     path:'task',
-    loadChildren: () => import('@modules/task/task.module').then((m) => m.TaskModule)//,//importacion dinamica
-    //canActivate:[validateSessionGuard]
+    loadChildren: () => import('@modules/task/task.module').then((m) => m.TaskModule),//,//importacion dinamica
+    canActivate:[ValidateSessionGuard]
+
+    //hay que instalar el ngx coockie npm i ngx-cookie
+  },
+  {
+    path:'**',
+    redirectTo:'/task'
   }
 ];
 
