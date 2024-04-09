@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { TestCourseService } from '@shared/services/test-course.service';
 import { interval } from 'rxjs';
 
@@ -7,32 +7,17 @@ import { interval } from 'rxjs';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent implements OnInit, AfterViewInit, AfterViewChecked{
-  @ViewChild('refId') elementRefId:ElementRef = new ElementRef('hola')
+export class CardComponent{
+  @ViewChild('refId') elementRefId:ElementRef = new ElementRef('')
   @Input() idOrder: string | number = 0
   @Input() items: Array<any> = []
 
-  constructor( private render2:Renderer2 ) { }
+  constructor(
+    private testCourseService:TestCourseService
+  ) { }
   
-  ngOnInit(): void{
-    interval(1000).subscribe(()=>{
-      this.idOrder=Date.now()
-    })
+  sendData():void{
+    this.testCourseService.setData('Hola desde card 😉')
+    console.log('envioalheader')
   }
-
-  ngAfterViewInit():void{
-    //esto no se puede aplicar en el onInit porque primero debe renderizarse, es decir, debe existir
-    const elemntTitle =this.elementRefId.nativeElement;
-    this.render2.setStyle(elemntTitle,'color','red')
-  }
-
-  ngAfterViewChecked(): void {
-    //se ejecuta cada vez que cambien las cosas
-    console.log('hola mundossss')
-    
-  }
-
-  // sendData():void{
-  //   this.testCourseService.setData('Hola desde card 😉')
-  // }
 }
